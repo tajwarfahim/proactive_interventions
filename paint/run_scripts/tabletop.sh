@@ -1,0 +1,23 @@
+python3 medal.py \
+env_name=tabletop_manipulation_no_walls \
+num_train_frames=3000000 \
+method_name=exp \
+use_stuck_buffer_for_Q=true \
+use_stuck_discrim_label=true \
+use_stuck_discrim_for_term=true \
+early_abort_threshold=0.5 \
+forward_agent.final_fraction=0.1 \
+forward_agent.final_timestep=500000 \
+backward_agent.balanced_buffer=true \
+backward_agent.final_fraction=0.1 \
+backward_agent.final_timestep=500000 \
+stuck_discriminator.train_interval=1 \
+stuck_discriminator.batch_size=64 \
+stuck_discriminator.train_steps_per_iteration=50000 \
+num_seed_frames=1000 \
+train_horizon=200000 \
+num_explore_steps=300 \
+num_demos=50 \
+r_min=-0.1 \
+num_stuck_state_samples=1000 \
+seed=0

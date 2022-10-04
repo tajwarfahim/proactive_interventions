@@ -1,0 +1,104 @@
+# task settings
+num_train_frames: 200500
+env_name: maze-config0
+frame_stack: 1
+action_repeat: 1
+discount: 0.99
+
+# safety critic
+use_safety_critic: false
+epsilon: 10
+
+# stuck function
+use_stuck_oracle_for_Q: false
+use_stuck_buffer_for_Q: false
+use_stuck_discrim_for_Q: false
+r_min: 0
+method_name: episodic
+
+# train settings
+num_seed_frames: 10000
+train_horizon: 500
+reward_type: sparse
+
+# eval
+eval_every_frames: 2000
+eval_horizon: 50
+num_eval_episodes: 10
+
+# snapshot
+save_snapshot: false
+
+# replay buffer
+replay_buffer_size: 5000000
+replay_buffer_num_workers: 4
+nstep: 1
+batch_size: 256
+simple_buffer: true
+balanced_buffer: false
+initial_fraction: 0.5
+final_fraction: 0.05
+final_timestep: 50000
+with_replacement: true
+
+# misc
+seed: 0
+device: cpu
+save_video: false
+save_train_video: false
+use_tb: true
+
+# agent
+lr: 3e-4
+feature_dim: 50
+behavior_clone: false
+num_demos: 20
+
+# stuck parameters
+default_stuck_value: 0.0
+use_stuck_ratio: false
+use_stuck_discrim_label: false
+
+# early termination
+early_abort_threshold: 0
+use_Q_value_for_term: false
+use_stuck_discrim_for_term: false
+use_initial_value_for_term: false
+use_oracle_for_term: false
+num_action_samples: 10
+num_explore_steps: 0
+
+# reset if successful/have reached the goal
+reset_at_success: false
+
+agent:
+  _target_: agents.SACAgent
+  obs_shape: ??? # to be specified later
+  action_shape: ??? # to be specified later
+  device: ${device}
+  lr: ${lr}
+  critic_target_tau: 0.005
+  reward_scale_factor: 10.0
+  use_tb: ${use_tb}
+  hidden_dim: 256
+  feature_dim: ${feature_dim}
+  from_vision: false
+  # stuck discriminator parameters
+  stuck_discrim_hidden_size: 128
+  stuck_discrim_unsupervised: false
+
+stuck_discriminator:
+  train_offline: false
+  unsupervised: ${agent.stuck_discrim_unsupervised}
+  unsupervised_window: 1
+  train_interval: 10
+  train_steps_per_iteration: 1
+  # replay buffer
+  batch_size: 800
+  positive_buffer_size: 10000000
+  negative_buffer_size: 10000000
+  with_replacement: true
+
+hydra:
+  run:
+    dir: ./exp_local/episodic/${env_name}/${method_name}/${seed}/

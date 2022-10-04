@@ -1,0 +1,82 @@
+# task settings
+num_train_frames: 2000000
+env_name: tabletop_manipulation_no_walls
+policy_switch_frequency: 300
+frame_stack: 1
+action_repeat: 1
+method_name: leave_no_trace
+# train settings
+num_seed_frames: 1000
+# eval
+eval_every_frames: 10000
+num_eval_episodes: 10
+reward_type: sparse
+# snapshot
+save_snapshot: false
+# misc
+seed: 0
+device: cuda
+save_video: false
+save_train_video: false
+use_tb: true
+train_horizon: 200000
+eval_horizon: 1000
+# agent
+lr: 3e-4
+feature_dim: 50
+# early termination
+switch_policy_threshold: 0.1
+replace_goal: true
+num_demos: 100
+
+forward_agent:
+  _target_: agents.SACAgent
+  obs_shape: ??? # to be specified later
+  action_shape: ??? # to be specified later
+  device: ${device}
+  lr: ${lr}
+  critic_target_tau: 0.005
+  reward_scale_factor: 10.0
+  use_tb: ${use_tb}
+  hidden_dim: 256
+  feature_dim: ${feature_dim}
+  from_vision: false
+  discount: 0.99
+  # replay buffer
+  replay_buffer_size: 5000000
+  nstep: 1
+  batch_size: 256
+  simple_buffer: false
+  balanced_buffer: true
+  initial_fraction: 0.5
+  final_fraction: 0.1
+  final_timestep: 500000
+  with_replacement: true
+
+backward_agent:
+  _target_: agents.SACAgent
+  obs_shape: ??? # to be specified later
+  action_shape: ??? # to be specified later
+  device: ${device}
+  lr: ${lr}
+  critic_target_tau: 0.005
+  reward_scale_factor: 10.0
+  use_tb: ${use_tb}
+  hidden_dim: 256
+  feature_dim: ${feature_dim}
+  from_vision: false
+  discount: 0.99
+  # replay buffer
+  replay_buffer_size: 5000000
+  nstep: 1
+  batch_size: 256
+  simple_buffer: false
+  balanced_buffer: true
+  initial_fraction: 0.5
+  final_fraction: 0.1
+  final_timestep: 500000
+  with_replacement: true
+
+hydra:
+  run:
+    dir: ./exp_local/${env_name}/${method_name}/${seed}/${now:%Y.%m.%d.%H.%M.%S}

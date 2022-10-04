@@ -1,0 +1,21 @@
+python3 medal.py \
+env_name=sawyer_peg_small_table \
+num_train_frames=4000000 \
+method_name=paint_online_cls \
+use_stuck_buffer_for_Q=true \
+use_stuck_discrim_label=true \
+use_stuck_discrim_for_term=true \
+early_abort_threshold=0.5 \
+forward_agent.final_fraction=0.1 \
+forward_agent.final_timestep=500000 \
+backward_agent.balanced_buffer=true \
+backward_agent.final_fraction=0.1 \
+backward_agent.final_timestep=500000 \
+num_seed_frames=1000 \
+train_horizon=100000 \
+num_explore_steps=300 \
+num_demos=50 \
+r_min=-0.1 \
+num_stuck_state_samples=0 \
+seed=0 \
+save_video=false
