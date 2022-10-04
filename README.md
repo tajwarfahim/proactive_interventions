@@ -95,4 +95,4 @@ tensorboard --logdir paint/exp_local
 
 ## Acknowledgements
 
-The codebase for the algorithm is built on top of the PyTorch implementation of [DrQ-v2](https://arxiv.org/abs/2107.09645), original codebase linked [here](https://github.com/facebookresearch/drqv2). The codebase for our environments with irreversibility is built on top of the codebase for [Autonomous Reinforcement Learning: Formalism and Benchmarking](https://arxiv.org/abs/2112.09605), original codebase linked [here](https://github.com/architsharma97/earl_benchmark). We thank the authors for providing us with easy-to-work-with codebases.
+The codebase for the algorithm is built on top of the PyTorch implementation of [DrQ-v2](https://arxiv.org/abs/2107.09645), original codebase linked [here](https://github.com/facebookresearch/drqv2). The codebase for our environments with irreversibility is built on top of the codebase for [EARL Benchmark](https://arxiv.org/abs/2112.09605), original codebase linked [here](https://github.com/architsharma97/earl_benchmark). We thank the authors for providing us with easy-to-work-with codebases.
