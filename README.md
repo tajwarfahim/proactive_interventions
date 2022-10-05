@@ -90,7 +90,7 @@ bash run_scripts/peg.sh
 **Monitor results:**
 
 ```
-tensorboard --logdir paint/exp_local
+tensorboard --logdir exp_local
 ```
 
 ## Acknowledgements
