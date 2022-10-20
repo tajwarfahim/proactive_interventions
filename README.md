@@ -1,7 +1,7 @@
 # Proactive Interventions in Autonomous Reinforcement Learning
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rlworkgroup/metaworld/blob/master/LICENSE)
 
-This is the official PyTorch implementation of our NeurIPS 2022 paper "When to Ask for Help: Proactive Interventions in Autonomous Reinforcement Learning" by [Annie Xie*](https://anxie.github.io/), [Fahim Tajwar*](https://tajwarfahim.github.io/), [Archit Sharma*](https://architsharma97.github.io/), [Chelsea Finn](https://ai.stanford.edu/~cbfinn/). Please see the [project website](https://sites.google.com/view/proactive-interventions) for example results. For any questions/concerns related to the codebase, please reach out to [Fahim Tajwar](mailto:tajwarfahim932@gmail.com).
+This is the official PyTorch implementation of our NeurIPS 2022 paper ["When to Ask for Help: Proactive Interventions in Autonomous Reinforcement Learning"](https://arxiv.org/abs/2210.10765) by [Annie Xie*](https://anxie.github.io/), [Fahim Tajwar*](https://tajwarfahim.github.io/), [Archit Sharma*](https://architsharma97.github.io/), [Chelsea Finn](https://ai.stanford.edu/~cbfinn/). Please see the [project website](https://sites.google.com/view/proactive-interventions) for example results. For any questions/concerns related to the codebase, please reach out to [Fahim Tajwar](mailto:tajwarfahim932@gmail.com).
 
 ## Citation
 
