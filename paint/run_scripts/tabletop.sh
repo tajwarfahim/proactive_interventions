@@ -1,7 +1,7 @@
 python3 medal.py \
 env_name=tabletop_manipulation_no_walls \
 num_train_frames=3000000 \
-method_name=exp \
+method_name=paint \
 use_stuck_buffer_for_Q=true \
 use_stuck_discrim_label=true \
 use_stuck_discrim_for_term=true \

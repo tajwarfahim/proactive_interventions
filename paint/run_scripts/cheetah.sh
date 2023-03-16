@@ -11,4 +11,6 @@ num_explore_steps=500 \
 early_abort_threshold=0.5 \
 method_name=paint \
 reward_type=dense \
+stuck_discriminator.batch_size=64 \
+stuck_discriminator.train_steps_per_iteration=50000 \
 save_video=false

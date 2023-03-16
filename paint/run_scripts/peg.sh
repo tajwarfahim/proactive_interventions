@@ -1,7 +1,7 @@
 python3 medal.py \
 env_name=sawyer_peg_small_table \
 num_train_frames=4000000 \
-method_name=paint_online_cls \
+method_name=paint \
 use_stuck_buffer_for_Q=true \
 use_stuck_discrim_label=true \
 use_stuck_discrim_for_term=true \
@@ -18,4 +18,6 @@ num_demos=50 \
 r_min=-0.1 \
 num_stuck_state_samples=0 \
 seed=0 \
+stuck_discriminator.batch_size=64 \
+stuck_discriminator.train_steps_per_iteration=50000 \
 save_video=false
